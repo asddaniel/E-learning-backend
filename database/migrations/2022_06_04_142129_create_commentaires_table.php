@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('commentaires', function (Blueprint $table) {
             $table->id();
+            // $table->unsignedBigInteger("user");
+            // $table->foreign('user')->references('id')->on('users');
+            $table->foreignId('user')->constrained();
+            $table->char("id_article", 255);
+            $table->string("content");
             $table->timestamps();
         });
     }

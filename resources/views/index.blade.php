@@ -14,7 +14,8 @@
 	</form>
 	<?php  
 	use Illuminate\Http\Request;
-//var_dump(Request::capture());
+	$request = new Request();
+var_dump($request->user());
 
 	?>
 

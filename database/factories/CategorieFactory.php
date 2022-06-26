@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Cour>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Categorie>
  */
-class CourFactory extends Factory
+class CategorieFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,7 @@ class CourFactory extends Factory
     public function definition()
     {
         return [
-            'titre'=>$this->faker->sentence, 
-            'auteur'=>2,
-            'categorie'=>2,
-            'contenu'=>$this->faker->paragraph
+            'nom_categorie'=>$this->faker->name
         ];
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Commentaire;
 use App\Http\Requests\StoreCommentaireRequest;
 use App\Http\Requests\UpdateCommentaireRequest;
+use App\Models\Commentaire;
 
 class CommentaireController extends Controller
 {
@@ -23,9 +24,21 @@ class CommentaireController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(Request $request){
+    //crée un nouveau commentaire
+       
+        $validatedData = $request->validate([
+'user' => 'required|string|max:255',
+                   'content' => 'required|string',
+                   'id_article' => 'required|string',
+]);
+         $commentaire  = new Commentaire();
+         $commentaire->user = $validatedData["user"];
+         $commentaire->content = $validatedData["content"];
+         $commentaire->id_article = $validatedData["id_article"];
+         $commentaire->save();
+
+
     }
 
     /**

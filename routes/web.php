@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
+Route::get('/me', [AuthController::class, 'me'])->middleware('auth:sanctum')->name("user");
 Route::post('/add_admin', [AdminController::class, "add_admin"])->name("add_admin");
 Route::post('/tokens/create', function (Request $request) {
     $token = $request->user()->createToken($request->token_name);
@@ -31,7 +31,7 @@ Route::post('/tokens/create', function (Request $request) {
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//Route::get('/me', [AuthController::class, 'me']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
