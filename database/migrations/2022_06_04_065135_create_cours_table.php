@@ -18,7 +18,7 @@ return new class extends Migration
             $table->char('titre', 100);
             $table->char('auteur', 100);
             $table->char('categorie', 255)->nullable();
-            $table->string('contenu');
+            $table->text('contenu');
             $table->char('image', 255)->nullable();
             $table->timestamps();
         });
